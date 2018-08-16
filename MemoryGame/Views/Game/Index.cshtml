@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/CSS/memorygame.css">
+</head>
+<body>
+
+    <div class="content">
+
+        <div id="cards"></div>
+
+        <div id="initialPage">
+             <h1>Select difficulty</h1>
+             <a onclick="InitCards(12,2)">Easy</a>
+             <a onclick="InitCards(18,1)">Medium</a>
+             <a onclick="InitCards(24,1)">Hardcore</a>
+        </div>
+
+        <script src="~/Scripts/card.js"></script>
+
+    </div>
+
+</body>
+</html>

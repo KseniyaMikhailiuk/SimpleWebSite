@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Memory Game</title>
+    <link href="~/Content/CSS/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            @Html.ActionLink("Shop", "Index", "Look")
+            @Html.ActionLink("Memory Game", "Index", "Game")
+            @Html.ActionLink("About", "Index", "Home")
+            @Html.ActionLink("Contacts", "Index", "Home")
+            @Html.ActionLink("Log In", "Index", "Home")
+        </div>
+    </div>
+
+    <div class="body-content">
+        @RenderBody()
+        
+    </div>
+
+    <hr />
+    
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</body>
+</html>
