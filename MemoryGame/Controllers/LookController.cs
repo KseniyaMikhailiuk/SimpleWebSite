@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 using MemoryGame.Models;
 
@@ -22,24 +23,24 @@ namespace MemoryGame.Controllers
         [HttpGet]
         public ActionResult Buy (int id)
         {
-            ViewBag.BookId = id;
+            ViewBag.LookId = id;
             return View();
         }
 
         [HttpPost]
-        public string Buy(Purchase purchase)
+        public ActionResult Buy(Purchase purchase)
         {
             purchase.Date = DateTime.Now;
             database.Purchases.Add(purchase);
             database.SaveChanges();
-            return "thnx, " + purchase.Person;
+            return RedirectToAction("Index", "Look");
         }
 
         public ActionResult Index()
         {
             IEnumerable<Look> looks = database.Looks;
             ViewBag.Looks = looks;
-            return View("IndexUser");
+            return View("Index");
         }
 
     }

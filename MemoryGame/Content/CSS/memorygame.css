@@ -1,9 +1,4 @@
-﻿body{
-    background-color: white;
-    width: 100%;
-    margin: 0;
-}
-
+﻿
 #initialPage{
     margin-top: 13%;
     text-align: center;
@@ -49,8 +44,8 @@
 
 #cards .theCardContainer{
     position: relative;
-    width: 15vw;
-    height: 20vw;
+    width: 10vw;
+    height: 10vw;
     margin: 10px 0px 10px 0px;
 }
 
@@ -77,7 +72,7 @@
 
 #cards .theBack{
     background-color: palevioletred;
-    background-image: url("~/Content/Images/lotus.png"); 
+    background-image: url("../Images/lotus.png"); 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

@@ -1,21 +1,42 @@
-﻿<!DOCTYPE html>
-
-<html>
+﻿<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Buy</title>
 </head>
 <body>
-    <div> 
+    <div>
         <h3>Оформление заказа</h3>
-        <form method="post">
-            <input type="hidden" value="@ViewBag.LookId" name="LookId" />
-            <input type="text" name="Person" value="ФИО"/>
-            <input type="text" name="Address" value="Адрес" />
-            <input type="submit" value="Оформить" />
-        </form>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
 
+        <fieldset>
 
+            @Html.Hidden("LookId", (object)@ViewBag.LookId)
+
+            <div class="reg-label">
+                @Html.Label("Person", "Person")
+            </div>
+            <div class="reg-field">
+                @Html.Editor("Person", "Person")
+                @Html.ValidationMessage("Person")
+            </div>
+
+            <div class="reg-label">
+                @Html.Label("Address", "Address")
+            </div>
+            <div class="reg-field">
+                @Html.Editor("Address", "Address")
+                @Html.ValidationMessage("Address")
+            </div>
+
+            <div class="submitbutton">
+                <input type="submit" value="Buy" />
+            </div>
+
+        </fieldset>
+
+        }
     </div>
 </body>
 </html>

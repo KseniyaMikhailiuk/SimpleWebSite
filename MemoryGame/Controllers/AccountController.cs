@@ -1,82 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
-using System.Web.Security;
 using System.Web.Mvc;
-using MemoryGame.Providers;
 using MemoryGame.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace MemoryGame.Controllers
 {
     public class AccountController : Controller
     {
         // GET: Account
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
             return View();
         }
 
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
         [HttpPost]
-        public ActionResult Login (LogOnModel model, string returnUrl)
+        public async Task<ActionResult> Login (LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.Username, model.Password))
+                ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
+                if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+                    ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    }, claim);
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
                     }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Wrong password or login");
                 }
             }
+            ViewBag.returnurl = returnUrl;
             return View(model);
         }
 
 
-        public ActionResult LogOff()
+        public ActionResult LogOut()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Account");
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Login");
         }
 
-        //GET: Registration
         public ActionResult Register()
         {
             return View();
         }
 
+        private ApplicationUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+        }
+
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public async Task<ActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                MembershipUser membershipUser = 
-                    ((CustomMembershipProvider)Membership.Provider).CreateUser(model.Username, model.Password, model.Email);
-
-                if (membershipUser != null)
+                ApplicationUser user = new ApplicationUser { Email = model.Email, Address = model.Address, UserName = model.Email,
+                                        CreationDate = DateTime.Now};
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
-                    return RedirectToAction("Index", "Home");
+                    UserManager.AddToRole(user.Id, "user");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Registration error");
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
                 }
             }
             return View(model);
         }
-
-
-
     }
 }

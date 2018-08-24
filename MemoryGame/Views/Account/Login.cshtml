@@ -1,16 +1,42 @@
-﻿@{
-    Layout = "~Views/Shared/_Layout.cshtml";
+﻿@model MemoryGame.Models.LoginModel
+@{
+    ViewBag.Title = "Registration";
 }
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
 
-<!DOCTYPE html>
+    <fieldset>
+        <div class="reg-label">
+            @Html.Label("Email", "Email")
+        </div>
+        <div class="reg-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessage("Email")
+        </div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
-</head>
-<body>
-    <div>
-    </div>
-</body>
-</html>
+        <div class="reg-label">
+            @Html.Label("Password", "Password")
+        </div>
+        <div class="reg-field">
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessage("Password")
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("RememberMe")
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model=>model.RememberMe)
+            @Html.ValidationMessage("RememberMe")
+        </div>
+
+        <div class="submitbutton">
+            <input type="submit" value="Login" />
+        </div>
+
+    </fieldset>
+
+    @Html.ActionLink("Register", "Register", "Account")
+}

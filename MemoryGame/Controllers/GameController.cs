@@ -8,7 +8,7 @@ namespace MemoryGame.Controllers
 {
     public class GameController : Controller
     {
-        // GET: Game
+        [Authorize]
         public ActionResult Index()
         {
             return View();

@@ -13,19 +13,19 @@
             @Html.ActionLink("Memory Game", "Index", "Game")
             @Html.ActionLink("About", "Index", "Home")
             @Html.ActionLink("Contacts", "Index", "Home")
-            @Html.ActionLink("Log In", "Index", "Home")
+            @Html.ActionLink("Log In", "Login", "Account")
+            @Html.ActionLink("Log Out", "LogOut", "Account")
         </div>
     </div>
 
     <div class="body-content">
-        @RenderBody()
-        
+        @RenderBody() 
     </div>
 
     <hr />
     
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - My ЭМЭЙЗИНГ Application</p>
     </footer>
 </body>
 </html>

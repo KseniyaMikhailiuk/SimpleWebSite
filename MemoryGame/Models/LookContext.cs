@@ -10,7 +10,5 @@ namespace MemoryGame.Models
     {
         public DbSet<Look> Looks { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
-
-
     }
 }

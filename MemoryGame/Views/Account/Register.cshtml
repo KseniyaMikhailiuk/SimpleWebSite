@@ -1,59 +1,48 @@
-﻿@{
-    Layout = "~Views/Shared/_Layout.cshtml";
+﻿@model MemoryGame.Models.RegisterModel
+@{
+    ViewBag.Title = "Registration";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
-</head>
-<body>
-    @{
-        ViewBag.Title = "Registration";
-    }
-    <Reference Include="System.Core" />
-    <h2>Register</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
 
-        <fieldset>
-            <div class="reg-label">
-                @Html.Label("Username", "Username")
-            </div>
-            <div class="reg-field">
-                @Html.Editor("Username", "Username")
-                @Html.ValidationMessage("Username")
-            </div>
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
 
-            <div class="reg-label">
-                @Html.Label("Email", "Email")
-            </div>
-            <div class="reg-field">
-                @Html.Editor("Email", "Email")
-                @Html.ValidationMessage("Email")
-            </div>
+<fieldset>
+    <div class="reg-label">
+        @Html.Label("Email", "Email")
+    </div>
+    <div class="reg-field">
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessage("Email")
+    </div>
 
-            <div class="reg-label">
-                @Html.Label("Password", "Password")
-            </div>
-            <div class="reg-field">
-                @Html.Editor("Password", "Password")
-                @Html.ValidationMessage("Password")
-            </div>
+    <div class="reg-label">
+        @Html.Label("Address", "Address")
+    </div>
+    <div class="reg-field">
+        @Html.EditorFor(model => model.Address)
+        @Html.ValidationMessage("Address")
+    </div>
 
-            <div class="reg-label">
-                @Html.Label("ConfirmPassword", "ConfirmPassword")
-            </div>
-            <div class="reg-field">
-                @Html.Editor("ConfirmPassword", "ConfirmPassword")
-                @Html.ValidationMessage("ConfirmPassword")
-            </div>
+    <div class="reg-label">
+        @Html.Label("Password", "Password")
+    </div>
+    <div class="reg-field">
+        @Html.PasswordFor(model => model.Password)
+        @Html.ValidationMessage("Password")
+    </div>
 
-            <div class="submitbutton">
-                <input type="submit" value="Register" />
-            </div>
-        </fieldset>
-    }
-</body>
-</html>
+    <div class="reg-label">
+        @Html.Label("ConfirmPassword")
+    </div>
+    <div class="reg-field">
+        @Html.PasswordFor(model => model.ConfirmPassword)
+        @Html.ValidationMessage("ConfirmPassword")
+    </div>
+
+    <div class="submitbutton">
+        <input type="submit" value="Register" />
+    </div>
+</fieldset>
+}

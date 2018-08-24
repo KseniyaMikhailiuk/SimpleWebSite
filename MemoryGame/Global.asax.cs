@@ -13,7 +13,7 @@ namespace MemoryGame
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new LookDBInitializer());
+            Database.SetInitializer(new DBInitializer());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

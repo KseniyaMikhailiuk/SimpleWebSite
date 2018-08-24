@@ -5,6 +5,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    margin:auto;
+    width: 70%;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -18,19 +20,22 @@ textarea {
 
 .navbar {
     height: 3vw;
-    background-color: lavender;
+    background-color: gray;
     width: 100%;
     display:flex;
 }
 
 .container {
-    width: 50%;
+    margin:auto;
+    width: 70%;
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .navbar a {
+    font-family:Roboto;
+    font-size:1.5vw;
     display:flex;
     text-decoration: none;
 }
@@ -39,6 +44,6 @@ footer{
     width: 100%;
     position:fixed;
     background-color: white;
-    bottom: 0vw;
+    bottom: 0.1vw;
 }
 

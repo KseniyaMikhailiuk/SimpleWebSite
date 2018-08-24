@@ -9,8 +9,8 @@ namespace MemoryGame.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name ="Login")]
-        public string Username { get; set; }
+        [Display(Name = "Address")]
+        public string Address { get; set; }
 
         [Required]
         [Display(Name = "Email")]
@@ -18,14 +18,14 @@ namespace MemoryGame.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [StringLength(20, ErrorMessage ="length: 6-20 symbols", MinimumLength =20)]
+        [StringLength(20, ErrorMessage ="length: 6-20 symbols", MinimumLength =6)]
+        [Display(Name ="Password")]
         public string Password { get; set; }
 
-        [Display(Name = "ConfirmPassword")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage ="Wrong password")]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match")]
         public string ConfirmPassword { get; set; }
     }
 }
