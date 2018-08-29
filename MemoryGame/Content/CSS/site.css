@@ -20,7 +20,7 @@ textarea {
 
 .navbar {
     height: 3vw;
-    background-color: gray;
+    background-color: darkgray;
     width: 100%;
     display:flex;
 }
@@ -29,15 +29,21 @@ textarea {
     margin:auto;
     width: 70%;
     display: inline-flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.rightside_nav{
+    display: inline-flex;
     align-items: center;
 }
 
 .navbar a {
     font-family:Roboto;
-    font-size:1.5vw;
+    font-size:1.3vw;
     display:flex;
     text-decoration: none;
+    color:dimgrey;
 }
 
 footer{

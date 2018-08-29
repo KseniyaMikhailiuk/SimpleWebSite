@@ -1,9 +1,8 @@
-﻿
-#initialPage{
+﻿#initialPage{
     margin-top: 13%;
     text-align: center;
     display: block;
-    width: 100%;
+    width: inherit;
 }
 
 #initialPage a{
@@ -44,7 +43,7 @@
 
 #cards .theCardContainer{
     position: relative;
-    width: 10vw;
+    width: 7vw;
     height: 10vw;
     margin: 10px 0px 10px 0px;
 }
@@ -72,7 +71,7 @@
 
 #cards .theBack{
     background-color: palevioletred;
-    background-image: url("../Images/lotus.png"); 
+    background-image: url("~/Content/Images/lotus.PNG"); 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

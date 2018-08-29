@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title Memory Game</title>
     <link href="~/Content/CSS/site.css" rel="stylesheet" type="text/css" />
 </head>
@@ -13,17 +16,20 @@
             @Html.ActionLink("Memory Game", "Index", "Game")
             @Html.ActionLink("About", "Index", "Home")
             @Html.ActionLink("Contacts", "Index", "Home")
-            @Html.ActionLink("Log In", "Login", "Account")
-            @Html.ActionLink("Log Out", "LogOut", "Account")
+
+            <div class="rightside_nav"><span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Log In", "Login", "Account")</div>
+            <div class="rightside_nav"><span class="glyphicon glyphicon-log-in"></span>@Html.ActionLink("Log Out", "LogOut", "Account")</div>
+
         </div>
     </div>
 
+
     <div class="body-content">
-        @RenderBody() 
+        @RenderBody()
     </div>
 
     <hr />
-    
+
     <footer>
         <p>&copy; @DateTime.Now.Year - My ЭМЭЙЗИНГ Application</p>
     </footer>

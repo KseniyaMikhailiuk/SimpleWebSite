@@ -21,6 +21,7 @@ namespace MemoryGame.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Buy (int id)
         {
             ViewBag.LookId = id;
@@ -40,6 +41,10 @@ namespace MemoryGame.Controllers
         {
             IEnumerable<Look> looks = database.Looks;
             ViewBag.Looks = looks;
+            if (User.IsInRole("admin"))
+            {
+                return View("AdminIndex");
+            }
             return View("Index");
         }
 

@@ -147,6 +147,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSS\memorygame.css" />
+    <Content Include="Content\CSS\shop.css" />
     <Content Include="Content\CSS\site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -157,6 +158,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\shopImg.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -171,6 +173,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808221139556_InitialCreate.cs" />
+    <Compile Include="Migrations\201808221139556_InitialCreate.Designer.cs">
+      <DependentUpon>201808221139556_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808281539528_MigrateDB.cs" />
+    <Compile Include="Migrations\201808281539528_MigrateDB.Designer.cs">
+      <DependentUpon>201808281539528_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -216,6 +227,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808221139556_InitialCreate.resx">
+      <DependentUpon>201808221139556_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281539528_MigrateDB.resx">
+      <DependentUpon>201808281539528_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

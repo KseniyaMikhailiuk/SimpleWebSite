@@ -102,3 +102,6 @@ C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\bin\Microsoft.Owin.Host.Sys
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\bin\Microsoft.Owin.Security.xml
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.InitialCreate.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.GenerateResource.cache
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.MigrateDB.resources

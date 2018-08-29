@@ -2,19 +2,41 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link rel="stylesheet" href="~/Content/CSS/shop.css">
 </head>
 <body>
     <div>
-        @foreach (var look in ViewBag.Looks)
+
+        @*<img id="myImg" onclick="showModal('myImg')" src="~/Content/Images/Looks/zaralook1.jpg" alt="look" style="width:100%;max-width:300px" />*@
+        @{
+        int i = 0;
+        foreach (var look in ViewBag.Looks)
         {
-        <div>
+            string imgId = "myImg" + i.ToString();
+            <div id="myImg">
+                <img id="@imgId" onclick="showModal('myImg' + @i.ToString())" src="~/Content/Images/Looks/zaralook1.jpg" alt="@look.Price" style="width:100%;max-width:300px;height:100%" />
+            </div>
+            i++;
+        }
+        }
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="caption"></div>
+        </div>
+
+        <script src="~/Scripts/shopImg.js"></script>
+
+
+        @*<div>
             <p>@look.Name</p>
             <p>@look.Price</p>
             <p>@look.Brand</p>
             <p>@look.Style</p>
-            @Html.ActionLink("Buy", "Buy/"+(object)look.Id, "Look")
-        </div>
-        }
+            @Html.ActionLink("Buy", "Buy/" + (object)look.Id, "Look")
+        </div>*@
+
+
     </div>
 </body>
 </html>
