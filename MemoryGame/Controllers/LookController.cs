@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
 using MemoryGame.Models;
+using System.Data.Entity.Infrastructure;
 
 namespace MemoryGame.Controllers
 {
@@ -12,11 +13,11 @@ namespace MemoryGame.Controllers
     {
         // GET: Look
 
-        LookContext database = new LookContext();
+        LookContext db = new LookContext();
 
         protected override void Dispose(bool disposing)
         {
-            database.Dispose(); 
+            db.Dispose(); 
             base.Dispose(disposing);
         }
 
@@ -32,14 +33,14 @@ namespace MemoryGame.Controllers
         public ActionResult Buy(Purchase purchase)
         {
             purchase.Date = DateTime.Now;
-            database.Purchases.Add(purchase);
-            database.SaveChanges();
+            db.Purchases.Add(purchase);
+            db.SaveChanges();
             return RedirectToAction("Index", "Look");
         }
 
         public ActionResult Index()
         {
-            IEnumerable<Look> looks = database.Looks;
+            IEnumerable<Look> looks = db.Looks;
             ViewBag.Looks = looks;
             if (User.IsInRole("admin"))
             {
@@ -47,6 +48,37 @@ namespace MemoryGame.Controllers
             }
             return View("Index");
         }
+
+        public ActionResult CreateLook([Bind(Include = "Name, Price")]Look look, HttpPostedFileBase upload)
+        {
+            try
+            {
+                if(upload != null && upload.ContentLength > 0)
+                {
+                    var image = new LookAttachmentFile
+                    {
+                        ContentType = upload.ContentType,
+                        FileType = FileType.Avatar,
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                    };
+
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        image.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    look.LookAttachmentFiles = new List<LookAttachmentFile> { image };                    
+                }
+                db.Looks.Add(look);
+                db.SaveChanges();
+                return RedirectToAction("Index"); 
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again.");
+            }
+            return View(look);
+        }
+
 
     }
 }

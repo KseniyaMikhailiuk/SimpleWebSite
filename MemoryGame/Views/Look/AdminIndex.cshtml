@@ -1,0 +1,73 @@
+﻿@model MemoryGame.Models.Look
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/CSS/shop.css">
+</head>
+<body>
+
+    <div>
+        <div id="myImg">
+            <img id="createItem" onclick="showModal('createItem')" src="~/Content/Images/quickadd1.png"
+                 style="max-width:300px; max-height:300px" />
+            <p class="lookName">Name</p>
+            <p class="lookPrice">Price</p>
+        </div>
+
+
+        @{
+            int i = 0;
+            foreach (var look in ViewBag.Looks)
+            {
+                string imgId = "myImg" + i.ToString();
+                <div id="myImg">
+                    <img id="@imgId" onclick="showModal('myImg' + @i.ToString())" src="~/File?id=@(((IEnumerable<dynamic>)look.LookAttachmentFiles).FirstOrDefault(f => f.FileType == FileType.Avatar).Id)"
+                         alt="@look.Description" style="max-width:300px; max-height:300px" />
+                    <p class="lookName">@look.Name</p>
+                    <p class="lookPrice">@look.Price</p>
+                    <p class="lookId">@look.Id</p>
+                </div>
+                i++;
+            }
+        }
+
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="description">
+                <div id="createForm">
+                    @using (Html.BeginForm("CreateLook", "Look", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <fieldset>
+                            @Html.Label("Name", "Name")
+                            <div class="reg-label">
+                                @Html.EditorFor(model => model.Name)
+                                @Html.ValidationMessage("Name")
+                            </div>
+
+                            <div class="reg-label">
+                                @Html.Label("Price", "Price")
+                            </div>
+                            <div class="reg-field">
+                                @Html.EditorFor(model => model.Price, new { @type = "number" });
+                                @Html.ValidationMessage("Price")
+                            </div>
+
+                            <div class="reg-field">
+                                <input type="file" id="avatar" name="upload" />
+                            </div>
+
+                            <div class="submitbutton">
+                                <input type="submit" value="Create" />
+                            </div>
+
+                        </fieldset>
+                    }
+                </div>
+            </div>
+            
+        </div>
+
+        <script src="~/Scripts/shopImg.js"></script>
+    </div>
+</body>

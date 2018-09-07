@@ -36,7 +36,7 @@ function CreateCard(images, i){
     var theFrontDiv = document.createElement("div");
     theFrontDiv.className = "theFront";
     var srcImage = GetRandomImg(images);
-    theFrontDiv.innerHTML = `<img src="img/${srcImage}">`;
+    theFrontDiv.innerHTML = `<img src="../Content/Images/Game/${srcImage}">`;
 
     var theBackDiv = document.createElement("div");
     theBackDiv.className = "theBack";
@@ -63,7 +63,7 @@ function GetImageArray(cardLimit, repeatLimit){
         while (randomRepeatAmount + commonAmount > cardLimit){
             randomRepeatAmount -= 2;
         }
-        images.push({src:`~/Content/Images/Game/${i}.png`, limit:randomRepeatAmount});
+        images.push({src:`${i}.png`, limit:randomRepeatAmount});
         commonAmount += randomRepeatAmount;
         i++;
     }

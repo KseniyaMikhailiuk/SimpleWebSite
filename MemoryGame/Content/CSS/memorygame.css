@@ -70,8 +70,8 @@
 }
 
 #cards .theBack{
-    background-color: palevioletred;
-    background-image: url("~/Content/Images/lotus.PNG"); 
+    background-color:cornflowerblue;
+    background-image: url("../Images/lotus.PNG"); 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -84,9 +84,9 @@
 #score{
     display: block;
     text-align: center;
-    background-color: pink;
+    background-color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 3vw;
-    color: palevioletred;
+    color: black;
     font-weight: bold;
 }

@@ -4,9 +4,33 @@
 
 #myImg{
     display:inline-flex;
+    width: 300px;
+    height:400px;
     border-radius: 5px;
     cursor:pointer;
     transition: 0.3s;
+    flex-direction:column;
+    align-content:center;
+}
+
+#createForm{
+    display:none;
+}
+
+.lookId{
+    display:none;
+}
+
+.lookName{
+    text-align:center;
+    color: slategray;
+    display:block;
+}
+
+.lookPrice {
+    text-align: center;
+    color: black;
+    display: block;
 }
 
 #myImg:hover{opacity:0.7;}
@@ -27,25 +51,36 @@
 
 .modal-content{
     margin: auto;
+    margin-right: 0px;
     display:block;
     width:80%;
     max-width:600px;
 }
 
-#caption{
+#description input{
+    display: block;
     margin:auto;
-    display:block;
-    width:80%;
-    max-width:700px;
-    text-align:center;
-    color:#ccc;
-    padding:10px 0;
-    height:150px;
 }
 
-.modal-content, #caption{
-    animation-name:zoom;
-    animation-duration:0.6s;
+#description{
+    margin: auto;
+    margin-left: 0px;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.lookDescription{
+    display:none;
+}
+
+.modal-content, #description{
+    animation-name: zoom;
+    animation-duration: 0.6s;
 }
 
 @keyframes zoom{

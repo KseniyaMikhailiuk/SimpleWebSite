@@ -1,4 +1,4 @@
-﻿<html>
+﻿@model MemoryGame.Models.Look
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
@@ -6,37 +6,27 @@
 </head>
 <body>
     <div>
-
-        @*<img id="myImg" onclick="showModal('myImg')" src="~/Content/Images/Looks/zaralook1.jpg" alt="look" style="width:100%;max-width:300px" />*@
         @{
-        int i = 0;
-        foreach (var look in ViewBag.Looks)
-        {
-            string imgId = "myImg" + i.ToString();
-            <div id="myImg">
-                <img id="@imgId" onclick="showModal('myImg' + @i.ToString())" src="~/Content/Images/Looks/zaralook1.jpg" alt="@look.Price" style="width:100%;max-width:300px;height:100%" />
-            </div>
-            i++;
-        }
+            int i = 0;
+            foreach (var look in ViewBag.Looks)
+            {
+                string imgId = "myImg" + i.ToString();
+                <div id="myImg">
+                    <img id="@imgId" onclick="showModal('myImg' + @i.ToString())" src="~/File?id=@(((IEnumerable<dynamic>)look.LookAttachmentFiles).FirstOrDefault(f => f.FileType == FileType.Avatar).Id)"
+                         alt="@look.Description" style="max-width:300px; max-height:300px" />
+                    <p class="lookName">@look.Name</p>
+                    <p class="lookPrice">@look.Price</p>
+                    <p class="lookId">@look.Id</p>
+                </div>
+                i++;
+            }
         }
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
             <img class="modal-content" id="img01" />
-            <div id="caption"></div>
+            <div id="description"></div>
         </div>
 
         <script src="~/Scripts/shopImg.js"></script>
-
-
-        @*<div>
-            <p>@look.Name</p>
-            <p>@look.Price</p>
-            <p>@look.Brand</p>
-            <p>@look.Style</p>
-            @Html.ActionLink("Buy", "Buy/" + (object)look.Id, "Look")
-        </div>*@
-
-
     </div>
 </body>
-</html>

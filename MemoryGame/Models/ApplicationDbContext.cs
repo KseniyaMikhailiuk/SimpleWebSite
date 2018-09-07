@@ -12,6 +12,7 @@ namespace MemoryGame.Models
         public ApplicationDbContext(): base("IdentityDb"){ }
 
         public DbSet<Look> Looks { get; set; }
+        public DbSet<LookAttachmentFile> LookAttachments { get; set; }
 
         public static ApplicationDbContext Create()
         {

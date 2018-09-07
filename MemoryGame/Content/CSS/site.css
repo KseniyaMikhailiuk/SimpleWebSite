@@ -46,6 +46,10 @@ textarea {
     color:dimgrey;
 }
 
+.navbar a:hover{
+    color: black;
+}
+
 footer{
     width: 100%;
     position:fixed;

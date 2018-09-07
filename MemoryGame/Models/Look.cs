@@ -9,7 +9,7 @@ namespace MemoryGame.Models
     {
         public int Id { get; set; }
 
-        public string Brand { get; set; }
+        public string Description { get; set; }
 
         public float Price { get; set; }
 
@@ -17,6 +17,6 @@ namespace MemoryGame.Models
 
         public string Style { get; set; }
 
-        public byte[] Image { get; set; }
+        public virtual ICollection<LookAttachmentFile> LookAttachmentFiles { get; set; }
     }
 }

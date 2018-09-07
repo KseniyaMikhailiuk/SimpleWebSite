@@ -105,3 +105,8 @@ C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\bin\Microsoft.Owin.Security
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.InitialCreate.resources
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.GenerateResource.cache
 C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.MigrateDB.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.MigrateDB1.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.LookAttachments.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.Looks.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.Look.resources
+C:\Users\дэл\Desktop\future\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Migrations.Look1.resources

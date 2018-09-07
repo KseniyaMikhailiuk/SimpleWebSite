@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LookController.cs" />
@@ -181,10 +182,32 @@
     <Compile Include="Migrations\201808281539528_MigrateDB.Designer.cs">
       <DependentUpon>201808281539528_MigrateDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808291134392_MigrateDB1.cs" />
+    <Compile Include="Migrations\201808291134392_MigrateDB1.Designer.cs">
+      <DependentUpon>201808291134392_MigrateDB1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809040824399_LookAttachments.cs" />
+    <Compile Include="Migrations\201809040824399_LookAttachments.Designer.cs">
+      <DependentUpon>201809040824399_LookAttachments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809040845008_Looks.cs" />
+    <Compile Include="Migrations\201809040845008_Looks.Designer.cs">
+      <DependentUpon>201809040845008_Looks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809061331159_Look.cs" />
+    <Compile Include="Migrations\201809061331159_Look.Designer.cs">
+      <DependentUpon>201809061331159_Look.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809070902520_Look1.cs" />
+    <Compile Include="Migrations\201809070902520_Look1.Designer.cs">
+      <DependentUpon>201809070902520_Look1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\LookAttachmentFile.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -214,6 +237,7 @@
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Look\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -224,6 +248,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -234,6 +259,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808281539528_MigrateDB.resx">
       <DependentUpon>201808281539528_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808291134392_MigrateDB1.resx">
+      <DependentUpon>201808291134392_MigrateDB1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809040824399_LookAttachments.resx">
+      <DependentUpon>201809040824399_LookAttachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809040845008_Looks.resx">
+      <DependentUpon>201809040845008_Looks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809061331159_Look.resx">
+      <DependentUpon>201809061331159_Look.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809070902520_Look1.resx">
+      <DependentUpon>201809070902520_Look1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
